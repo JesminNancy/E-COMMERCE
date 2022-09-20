@@ -27,8 +27,8 @@
                                 <img src="{{ asset('assets/uploads/category/'.$item->image) }}"  class="category-image" alt="Image Here">
                             </td>
                             <td>
-                                <a class="btn btn-primary" href="{{ 'edit-categories/'.$item->id}}">Edit</a>
-                                <button class="btn btn-danger">Delete</button>
+                                <a class="btn btn-primary" href="{{ url('edit-categories/'.$item->id)}}">Edit</a>
+                                <a href="{{ url('delete-category/'.$item->id) }}" class="btn btn-danger">Delete</a>
                             </td>
                     </tr>
                     @endforeach

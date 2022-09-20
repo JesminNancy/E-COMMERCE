@@ -40,7 +40,7 @@ class CategoryController extends Controller
        $category->meta_descrip=$request->input('metadesc');
        $category->meta_keywords=$request->input('metakey');
        $category->save();
-       return redirect('/dashboard')->with('stauts', "Data has been created successfully");
+       return redirect('/dashboard')->with('stauts', "Category Created Successfully");
     }
 
     public function editCategory($id){
@@ -77,5 +77,17 @@ class CategoryController extends Controller
        return redirect('/dashboard')->with('stauts', "Category Updated successfully");
     }
 
-
+    public function destroy($id){
+        $category=Category::find($id);
+        if($category->image)
+        {
+            $path='assets/uploads/category/'.$category->image;
+            if(File::exists($path))
+            {
+                File::delete($path);
+            }
+        }
+        $category->delete();
+        return redirect('/categories')->with('stauts', "Category Deleted successfully");
+    }
 }
