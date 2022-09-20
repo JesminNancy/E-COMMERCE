@@ -1,6 +1,9 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Admin\FrontendController;
+use App\Http\Controllers\Admin\CategoryController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -24,7 +27,9 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 
 Route::middleware(['auth', 'admin'])->group(function () {
-    Route::get('/dashboard', function () {
-        return view ('admin.index');
-     });
+
+    Route::get('/dashboard', [FrontendController::class, 'index']);
+    Route::get('categories', [CategoryController::class, 'index']);
+    Route::get('add-categories', [CategoryController::class, 'addCategory']);
+    Route::post('insert-categories', [CategoryController::class, 'insertData']);
 });
