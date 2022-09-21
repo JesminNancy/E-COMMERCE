@@ -40,7 +40,7 @@ class CategoryController extends Controller
        $category->meta_descrip=$request->input('metadesc');
        $category->meta_keywords=$request->input('metakey');
        $category->save();
-       return redirect('/dashboard')->with('stauts', "Category Created Successfully");
+       return redirect('/dashboard')->with('status', "Category Created Successfully");
     }
 
     public function editCategory($id){
@@ -74,7 +74,7 @@ class CategoryController extends Controller
         $category->meta_descrip=$request->input('metadesc');
         $category->meta_keywords=$request->input('metakey');
         $category->update();
-       return redirect('/dashboard')->with('stauts', "Category Updated successfully");
+       return redirect('/dashboard')->with('status', "Category Updated successfully");
     }
 
     public function destroy($id){
@@ -88,6 +88,6 @@ class CategoryController extends Controller
             }
         }
         $category->delete();
-        return redirect('/categories')->with('stauts', "Category Deleted successfully");
+        return redirect('/categories')->with('status', "Category Deleted successfully");
     }
 }
