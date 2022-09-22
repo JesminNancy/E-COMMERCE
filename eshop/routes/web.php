@@ -42,4 +42,7 @@ Route::middleware(['auth', 'admin'])->group(function () {
     Route::get('products', [ProductController::class, 'index']);
     Route::get('add-products', [ProductController::class, 'addProduct']);
     Route::post('insert-products', [ProductController::class, 'insertProduct']);
+    Route::get('edit-product/{id}', [ProductController::class, 'editProduct']);
+    Route::put('update-products/{id}', [ProductController::class, 'updateProduct']);
+    Route::get('delete-product/{id}', [ProductController::class, 'destroy']);
 });
