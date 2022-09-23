@@ -22,6 +22,7 @@ use App\Http\Controllers\Frontend\FrontController;
 //     return view('welcome');
 // });
  Route::get('/',[FrontController::class, 'index']);
+ Route::get('category',[FrontController::class, 'category']);
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
