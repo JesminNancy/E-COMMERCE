@@ -40,6 +40,7 @@ class ProductController extends Controller
        $product->selling_price=$request->input('selling_price');
        $product->qty=$request->input('qty');
        $product->tax=$request->input('tax');
+       $product->status=$request->input('status') == TRUE ? '1':'0';
        $product->trending=$request->input('trending') == TRUE ? '1':'0';
        $product->meta_title=$request->input('meta_title');
        $product->meta_description=$request->input('meta_description');
@@ -77,6 +78,7 @@ class ProductController extends Controller
         $product->selling_price=$request->input('selling_price');
         $product->qty=$request->input('qty');
         $product->tax=$request->input('tax');
+        $product->status=$request->input('status') == TRUE ? '1':'0';
         $product->trending=$request->input('trending') == TRUE ? '1':'0';
         $product->meta_title=$request->input('meta_title');
         $product->meta_description=$request->input('meta_description');

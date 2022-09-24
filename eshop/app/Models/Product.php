@@ -20,6 +20,7 @@ class Product extends Model
         'image',
         'qty',
         'tax',
+        'status',
         'trending',
         'meta_title',
         'meta_description',

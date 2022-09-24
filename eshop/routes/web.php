@@ -23,6 +23,7 @@ use App\Http\Controllers\Frontend\FrontController;
 // });
  Route::get('/',[FrontController::class, 'index']);
  Route::get('category',[FrontController::class, 'category']);
+ Route::get('view-category/{slug}',[FrontController::class, 'viewCategory']);
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
