@@ -37,15 +37,15 @@
                           <label class="badge bg-danger">out of stock</label>
                         @endif
                         <div class="row mt-2">
-                            <div class="col-md-3 mt-2">
+                            <div class="col-md-2 mt-2">
                                 <label for="quantity">Quantity</label>
                                 <div class="input-group text-center mb-3">
-                                    <span class="input-group-text">-</span>
-                                    <input type="text" name="quantity" value="1" class="form-control">
-                                    <span class="input-group-text">+</span>
+                                    <button class="input-group-text decrement-btn">-</button>
+                                    <input type="text" name="quantity" value="1" class="form-control qty-input ">
+                                    <button class="input-group-text increment-btn">+</button>
                                 </div>
                             </div>
-                            <div class="col-md-9">
+                            <div class="col-md-10">
                                 <br>
                                 <button type="button" class="btn btn-success me-3 float-start">Add to Wishlist
                                     <i class="fa fa-heart"></i>
@@ -63,5 +63,34 @@
             </div>
         </div>
     </div>
+
+@endsection
+
+@section('scripts')
+<script>
+$(document).ready(function () {
+    $('.increment-btn').click(function (e) {
+        e.preventDefault();
+        var inc_value =$('.qty-input').val();
+        var value = parseInt(inc_value, 20);
+        value = isNaN(value) ? 0 : value;
+        if(value < 20){
+             value++;
+            $('.qty-input').val(value);
+         }
+    });
+
+    $('.decrement-btn').click(function (e) {
+        e.preventDefault();
+        var inc_value =$('.qty-input').val();
+        var value = parseInt(inc_value, 20);
+        value = isNaN(value) ? 0 : value;
+        if(value > 1){
+             value--;
+            $('.qty-input').val(value);
+         }
+    });
+});
+</script>
 
 @endsection
