@@ -5,6 +5,7 @@ use App\Http\Controllers\Admin\FrontendController;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\Frontend\FrontController;
+use App\Http\Controllers\Frontend\CartController;
 
 
 /*
@@ -23,12 +24,16 @@ use App\Http\Controllers\Frontend\FrontController;
 // });
  Route::get('/',[FrontController::class, 'index']);
  Route::get('category',[FrontController::class, 'category']);
- Route::get('category/{slug}',[FrontController::class, 'viewCategory']);
- Route::get('category/{cate_slug}/{prod_slug}',[FrontController::class, 'viewProduct']);
+ Route::get('view-category/{slug}',[FrontController::class, 'viewCategory']);
+ Route::get('view-category/{cate_slug}/{prod_slug}',[FrontController::class, 'viewProduct']);
+
 Auth::routes();
+// Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::post('add-to-cart', [CartController::class, 'addProduct']);
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::middleware(['auth'])->group(function () {
 
+});
 
 
 Route::middleware(['auth', 'admin'])->group(function () {
