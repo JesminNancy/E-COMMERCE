@@ -1,7 +1,7 @@
 @extends('layouts.front')
 
 @section('title')
-    Welcome to E-Shop
+    My Cart
 @endsection
 @section('content')
 <div class="py-3 mb-4 shadow-sm bg-warning border-top">
@@ -45,7 +45,7 @@
             </div>
             <div class="card-footer">
                 <h6>Total Price:Tk.{{ $total }}
-                <button class="btn btn-outline-success float-end">Proceed to checkout</button>
+                <a href="{{ url('checkout') }}" class="btn btn-outline-success float-end">Proceed to checkout</a>
                 </h6>
             </div>
         </div>

@@ -6,6 +6,7 @@ use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\Frontend\FrontController;
 use App\Http\Controllers\Frontend\CartController;
+use App\Http\Controllers\Frontend\CheckoutController;
 
 
 /*
@@ -34,7 +35,7 @@ Route::post('delete-cart-item', [CartController::class, 'deleteproduct']);
 Route::post('update-cart', [CartController::class, 'updateCart']);
 Route::middleware(['auth'])->group(function () {
     Route::get('cart', [CartController::class, 'cartView']);
-
+    Route::get('checkout', [CheckoutController::class, 'index']);
 });
 
 
