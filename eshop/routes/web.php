@@ -28,10 +28,11 @@ use App\Http\Controllers\Frontend\CartController;
  Route::get('view-category/{cate_slug}/{prod_slug}',[FrontController::class, 'viewProduct']);
 
 Auth::routes();
-// Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::post('add-to-cart', [CartController::class, 'addProduct']);
-
+Route::post('delete-cart-item', [CartController::class, 'deleteproduct']);
 Route::middleware(['auth'])->group(function () {
+    Route::get('cart', [CartController::class, 'cartView']);
 
 });
 

@@ -7,23 +7,26 @@
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav ms-auto">
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="#">Home</a>
+            <a class="nav-link active" aria-current="page" href="{{ url('/') }}">Home</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="{{ url('category') }}">Category</a>
           </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{{ url('cart') }}">Cart</a>
+          </li>
           @guest
-                            @if (Route::has('login'))
-                                <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
-                                </li>
-                            @endif
+             @if (Route::has('login'))
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+                     </li>
+                     @endif
 
-                            @if (Route::has('register'))
-                                <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
-                                </li>
-                            @endif
+                    @if (Route::has('register'))
+                  <li class="nav-item">
+                      <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+                      </li>
+                     @endif
                         @else
 
                         <li class="nav-item dropdown">
@@ -50,9 +53,6 @@
                           </li>
 
                         @endguest
-          <li class="nav-item">
-            <a class="nav-link" href="#">Pricing</a>
-          </li>
         </ul>
       </div>
     </div>
