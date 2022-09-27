@@ -80,10 +80,7 @@
                                 </tbody>
                             </table>
 
-                            <button class="btn btn-primary float-end">Place Order</button>
-
-
-
+                            <button class="btn btn-primary display-block w-100">Place Order</button>
                         </div>
                     </div>
                 </div>

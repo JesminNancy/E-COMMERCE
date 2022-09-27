@@ -27,20 +27,26 @@
                     <div class="col-md-2 my-auto">
                         <h6>Tk.{{ $items->products->selling_price }}</h6>
                     </div>
-                    <div class="col-md-3">
+                    <div class="col-md-3 my-auto">
                         <input type="hidden" class="prod_id" value="{{ $items->product_id }}">
-                        <label for="quantity">Quantity</label>
-                        <div class="input-group text-center mb-3" style="width: 130px">
-                            <button class="input-group-text changeQuantity decrement-btn">-</button>
-                            <input type="text" name="quantity" value="{{ $items->product_qty }}" class="form-control qty-input ">
-                            <button class="input-group-text changeQuantity increment-btn">+</button>
-                        </div>
+
+                        @if($items->products->qty > $items->product_qty)
+                            <label for="quantity">Quantity</label>
+                            <div class="input-group text-center mb-3" style="width: 130px">
+                                <button class="input-group-text changeQuantity decrement-btn">-</button>
+                                <input type="text" name="quantity" value="{{ $items->product_qty }}" class="form-control qty-input ">
+                                <button class="input-group-text changeQuantity increment-btn">+</button>
+                            </div>
+                            @php $total += $items->products->selling_price * $items->product_qty; @endphp
+                        @else
+                            <h6>Out Of Stock</h6>
+                        @endif
                     </div>
                     <div class="col-md-2">
                         <button class="btn btn-danger delete-cart-item"><i class="fa fa-trash"></i> Remove</button>
                     </div>
                 </div>
-                @php $total += $items->products->selling_price * $items->product_qty; @endphp
+                {{-- @php $total += $items->products->selling_price * $items->product_qty; @endphp --}}
                 @endforeach
             </div>
             <div class="card-footer">
