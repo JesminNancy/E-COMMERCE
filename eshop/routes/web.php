@@ -29,13 +29,15 @@ use App\Http\Controllers\Frontend\CheckoutController;
  Route::get('view-category/{cate_slug}/{prod_slug}',[FrontController::class, 'viewProduct']);
 
 Auth::routes();
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+// Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::post('add-to-cart', [CartController::class, 'addProduct']);
 Route::post('delete-cart-item', [CartController::class, 'deleteproduct']);
 Route::post('update-cart', [CartController::class, 'updateCart']);
+
 Route::middleware(['auth'])->group(function () {
     Route::get('cart', [CartController::class, 'cartView']);
     Route::get('checkout', [CheckoutController::class, 'index']);
+    Route::post('place-order', [CheckoutController::class, 'placeOrder']);
 });
 
 
